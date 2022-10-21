@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 #sidebar {
   height: 100vh;
   padding: 3em 1.5em;
@@ -36,5 +38,12 @@
     .caret {
       fill: black;
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #sidebar {
+    padding: 1.5em;
+    height: $sidebarHeightForMobileDevices;
   }
 }

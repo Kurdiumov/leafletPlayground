@@ -1,4 +1,12 @@
+@import "./variables.scss";
+
 #map {
   height: 100vh;
   padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #map {
+    height: calc(100vh - ($sidebarHeightForMobileDevices));
+  }
 }
