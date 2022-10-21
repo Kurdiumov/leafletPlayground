@@ -1,3 +1,26 @@
 #sidebar {
-    height: 100vh;
+  height: 100vh;
+  padding: 3em 1.5em;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  }
+
+  #locateMeBtn {
+    width: 100%;
+    max-width: 250px;
+    background-color: white;
+    color: black;
+    margin: auto;
+
+    &:hover {
+      background-color: #ededed;
+    }
+
+    &:active {
+      background-color: #c6c6c6;
+    }
+  }
 }

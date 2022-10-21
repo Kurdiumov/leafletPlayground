@@ -3,8 +3,9 @@ import "../styles/styles.scss";
 
 import "./sidebar";
 import LeafletMap from "./leafletMap";
+import Sidebar from "./sidebar";
 
-
-LeafletMap.Initialize();
+const sidebar = new Sidebar(LeafletMap);
+LeafletMap.initialize();
 
 window.map = LeafletMap.map;
