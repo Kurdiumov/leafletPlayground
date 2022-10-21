@@ -6,6 +6,7 @@ import LeafletMap from "./leafletMap";
 import Sidebar from "./sidebar";
 
 import * as turf from '@turf/turf'
+import "leaflet-draw";
 
 const sidebar = new Sidebar(LeafletMap);
 LeafletMap.initialize();
