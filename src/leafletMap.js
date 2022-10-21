@@ -1,4 +1,5 @@
 import "../node_modules/leaflet/dist/leaflet.css";
+import "./leafletMarkerIconFix";
 import L from "leaflet";
 import tileServiceProviders from "./TileServiceProviders";
 
