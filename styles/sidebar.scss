@@ -9,8 +9,6 @@
   }
 
   #locateMeBtn {
-    width: 100%;
-    max-width: 250px;
     background-color: white;
     color: black;
     margin: auto;
@@ -21,6 +19,22 @@
 
     &:active {
       background-color: #c6c6c6;
+    }
+  }
+
+  .input-field {
+    background-color: white;
+
+    input {
+      color: black;
+      border: none;
+    }
+    ul li span {
+      color: black;
+    }
+
+    .caret {
+      fill: black;
     }
   }
 }

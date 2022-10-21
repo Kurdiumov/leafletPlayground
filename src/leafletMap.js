@@ -1,23 +1,31 @@
 import "../node_modules/leaflet/dist/leaflet.css";
 import L from "leaflet";
+import tileServiceProviders from "./TileServiceProviders";
 
 class LeafletMap {
+  tileServices = tileServiceProviders;
+
   constructor() {
+    const calgaryCoords = [51.04333, -114.078765];
+
     this.map = L.map("map", {
       attributionControl: false,
       zoomControl: false
-    }).setView([51.04333, -114.078765], 12);
+    }).setView(calgaryCoords, 12);
   }
 
   initialize() {
-    const tiles = L.tileLayer(
-      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        maxZoom: 19
-      }
-    );
+    this.setNewTileService("osm");
+  }
 
-    tiles.addTo(this.map);
+  setNewTileService(key) {
+    this.tiles?.remove();
+
+    this.tiles = L.tileLayer(this.tileServices[key].url, {
+      maxZoom: 19
+    });
+
+    this.tiles.addTo(this.map);
   }
 
   setLocateMe(lat, lon) {
