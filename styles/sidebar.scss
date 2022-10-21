@@ -10,10 +10,10 @@
     flex-flow: column;
   }
 
-  #locateMeBtn {
+  #locateMeBtn, #shareMap {
     background-color: white;
     color: black;
-    margin: auto;
+    margin: 1em auto;
 
     &:hover {
       background-color: #ededed;

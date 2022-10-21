@@ -8,8 +8,20 @@ import Sidebar from "./sidebar";
 import * as turf from '@turf/turf'
 import "leaflet-draw";
 
-const sidebar = new Sidebar(LeafletMap);
-LeafletMap.initialize();
+var state = parseQuery(window.location.search) ?? {};
 
-window.map = LeafletMap.map;
+const leafletMap = new LeafletMap(state);
+const sidebar = new Sidebar(leafletMap, state.tile);
+
+window.map = leafletMap.map;
 window.turf = turf;
+
+function parseQuery(queryString) {
+    var query = {};
+    var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split('=');
+        query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+    }
+    return query;
+}

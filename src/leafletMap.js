@@ -3,20 +3,22 @@ import "./leafletMarkerIconFix";
 import L from "leaflet";
 import tileServiceProviders from "./TileServiceProviders";
 
-class LeafletMap {
+export default class LeafletMap {
   tileServices = tileServiceProviders;
 
-  constructor() {
+  constructor(state) {
     const calgaryCoords = [51.04333, -114.078765];
+
+    var initialCoords = state.mapCenter?.split(',') ?? calgaryCoords;
+    var initialZoomLevel = state.zoom ?? 12
+    var initialTileService = state.tile ?? "google"
 
     this.map = L.map("map", {
       attributionControl: false,
       zoomControl: false
-    }).setView(calgaryCoords, 12);
-  }
+    }).setView(initialCoords, initialZoomLevel);
 
-  initialize() {
-    this.setNewTileService("google");
+    this.setNewTileService(initialTileService);
   }
 
   setNewTileService(key) {
@@ -52,5 +54,3 @@ class LeafletMap {
     }).addTo(this.map);
   }
 }
-
-export default new LeafletMap();

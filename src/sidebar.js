@@ -1,10 +1,20 @@
 import tileServiceProviders from "./TileServiceProviders";
 
 export default class Sidebar {
-  constructor(map) {
+  constructor(map, tileService) {
     this.map = map;
     this.initializeLocationBtn();
-    this.initializeDropDown();
+    this.initializeDropDown(tileService);
+
+    document.getElementById("shareMap").onclick = () => {
+      const mapCenter = this.map.map.getCenter();
+      const mapZoomLevel = this.map.map.getZoom();
+      const selectedTileLayer = document.getElementById("tileServiceSelect").value;
+
+      var newUrl = `${window.location.origin}?mapCenter=${mapCenter.lat},${mapCenter.lng}&zoom=${mapZoomLevel}&tile=${selectedTileLayer}`;
+
+      window.open(newUrl, '_blank');
+    };
   }
 
   initializeLocationBtn() {
@@ -28,13 +38,17 @@ export default class Sidebar {
     };
   }
 
-  initializeDropDown() {
+  initializeDropDown(tileService) {
     const tileServiceSelect = document.getElementById("tileServiceSelect");
 
     for (const key in tileServiceProviders) {
       const option = document.createElement("option");
       option.value = key;
       option.innerHTML = tileServiceProviders[key].name;
+
+      if (tileService === key) {
+        option.selected = "selected";
+      }
 
       tileServiceSelect.appendChild(option);
     }
