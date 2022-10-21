@@ -1,3 +1,6 @@
-* {
-  color: black;
+@import "./sidebar.scss";
+@import "./map.scss";
+
+body {
+  height: 100vh;
 }

@@ -88,3 +88,5 @@ styles/styles.css.map
 .parcel-cache/
 .cache/
 dist/
+
+.DS_Store
