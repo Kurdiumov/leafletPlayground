@@ -24,7 +24,10 @@ class LeafletMap {
     this._renderLocateMeCircle(lat, lon);
 
     const zoomLevel = 15;
-    this.map.setView({ lat: lat, lon: lon }, zoomLevel);
+    this.map.flyTo([lat, lon], zoomLevel, {
+      animate: true,
+      duration: 2
+    });
   }
 
   _renderLocateMeCircle(lat, lon) {
