@@ -15,7 +15,7 @@ class LeafletMap {
   }
 
   initialize() {
-    this.setNewTileService("osm");
+    this.setNewTileService("google");
   }
 
   setNewTileService(key) {
