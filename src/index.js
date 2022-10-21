@@ -5,9 +5,10 @@ import "./sidebar";
 import LeafletMap from "./leafletMap";
 import Sidebar from "./sidebar";
 
-import turf from "turf";
+import * as turf from '@turf/turf'
 
 const sidebar = new Sidebar(LeafletMap);
 LeafletMap.initialize();
 
 window.map = LeafletMap.map;
+window.turf = turf;
